@@ -39,8 +39,7 @@ func generate(cfg *config, n int) string {
 		i++
 	}
 	pw := builder.String()
-	specialFound := checkSpecials(cfg, pw)
-	if !specialFound {
+	if !checkSpecials(cfg, pw) || !checkNumbers(cfg, pw) {
 		// fmt.Println("weak password - re-generating...")
 		pw = generate(cfg, n)
 	}
