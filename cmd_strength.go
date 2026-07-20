@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"slices"
 	"strings"
 
 	"golang.org/x/term"
@@ -32,6 +33,9 @@ func cmdStrength(cfg *config, _ []string) error {
 }
 
 func validate(cfg *config, pw string) error {
+	if slices.Contains(cfg.CommonPWs, pw) {
+		return fmt.Errorf("extremely weak - password is too common")
+	}
 	if len(pw) > 15 {
 		if checkNumbers(cfg, pw) || checkSpecials(cfg, pw) {
 			fmt.Println("very strong")
