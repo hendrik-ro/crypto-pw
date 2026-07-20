@@ -14,6 +14,34 @@ type config struct {
 	Specials   []string
 	Characters []string
 	Length     int
+	CommonPWs  []string
+}
+
+var commonPWs = []string{
+	"123456789",
+	"qwerty",
+	"password",
+	"12345",
+	"qwerty123",
+	"1q2w3e",
+	"12345678",
+	"111111",
+	"1234567890",
+	"admin",
+	"111111",
+	"000000",
+	"iloveyou",
+	"letmein",
+	"welcome",
+	"monkey",
+	"dragon",
+	"123456789",
+	"123123",
+	"12345",
+	"123456",
+	"1234567",
+	"12345678",
+	"1234567890",
 }
 
 func loadConfig() config {
@@ -30,6 +58,7 @@ func loadConfig() config {
 		Specials:   specialsArray,
 		Characters: characters,
 		Length:     15,
+		CommonPWs:  commonPWs,
 	}
 	return cfg
 }
